@@ -2,34 +2,33 @@ import java.util.Scanner;
 
 public class Main {
 
-  final String ALPHABET =" ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ";
+  final String ALPHABET = " ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ";
 
   public String encrypt(String message, int shiftValue) {
     message = message.toUpperCase();
     String cipherText = "";
     for (int i = 0; i < message.length(); i++) {
-        int charPos = ALPHABET.indexOf(message.charAt(i));
-        int keyValue = (shiftValue + charPos) % 29;
-      if (charPos == 0){
+      int charPos = ALPHABET.indexOf(message.charAt(i));
+      int keyValue = (shiftValue + charPos) % 29;
+      if (charPos == 0) {
         keyValue = 0;
       }
-        char replaceValue = ALPHABET.charAt(keyValue);
-        cipherText += replaceValue;
+      char replaceValue = ALPHABET.charAt(keyValue);
+      cipherText += replaceValue;
     }
-return cipherText;
+    return cipherText;
   }
 
-  public String decrypt (String message, int shiftValue) {
+  public String decrypt(String message, int shiftValue) {
     message = message.toUpperCase();
     String cipherText = "";
     for (int i = 0; i < message.length(); i++) {
       int charPos = ALPHABET.indexOf(message.charAt(i));
       int keyValue = (charPos - shiftValue) % 29;
-      if (charPos == 0){
+      if (charPos == 0) {
         keyValue = 0;
-      }
-      else if (keyValue < 0){
-        keyValue = ALPHABET.length() + keyValue -1;
+      } else if (keyValue < 0) {
+        keyValue = ALPHABET.length() + keyValue - 1;
       }
       char replaceValue = ALPHABET.charAt(keyValue);
       cipherText += replaceValue;
