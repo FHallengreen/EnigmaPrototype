@@ -43,5 +43,8 @@ public class Main {
     String message = scan.nextLine();
     System.out.println("Enter Shift Value: ");
     int key = scan.nextInt();
+
+//    System.out.println("Enter encrypted code: " + obj.encrypt(message, key));
+//    System.out.println("Enter decrypted code: " + obj.decrypt(message, key));
   }
 }
